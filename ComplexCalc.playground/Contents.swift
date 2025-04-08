@@ -28,6 +28,45 @@ print("Welcome back to the UW Calculator")
 //: IMPORTANT: If any tests are commented out, you will be graded a zero (0)! You should never be in the habit of eliminating tests to make the code pass.
 //:
 class Calculator {
+    func add(lhs l: Int, rhs r: Int) -> Int {
+        return l + r
+    }
+    
+    func add(_ args: [Int]) -> Int {
+        var res = 0
+        for num in args {
+            res += num
+        }
+        return res
+    }
+    
+    func subtract(lhs l: Int, rhs r: Int) -> Int {
+        return l - r
+    }
+    
+    func multiply(lhs l: Int, rhs r: Int) -> Int {
+        return l * r
+    }
+    
+    func multiply(_ args: [Int]) -> Int {
+        var res = 1
+        for num in args {
+            res *= num
+        }
+        return res
+    }
+    
+    func divide(lhs l: Int, rhs r: Int) -> Int {
+        return l / r
+    }
+    
+    func count(_ args: [Int]) -> Int {
+        return args.count
+    }
+    
+    func avg(_ args: [Int]) -> Int {
+        return add(args) / args.count
+    }
 }
 
 //: Don't change the name of this object (`calc`); it's used in all the tests.
