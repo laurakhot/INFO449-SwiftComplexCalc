@@ -65,6 +65,9 @@ class Calculator {
     }
     
     func multiply(_ args: [Int]) -> Int {
+        if args.isEmpty {
+            return 0
+        }
         var res = 1
         for num in args {
             res *= num
@@ -81,6 +84,9 @@ class Calculator {
     }
     
     func avg(_ args: [Int]) -> Int {
+        if args.isEmpty {
+            return 0
+        }
         return add(args) / args.count
     }
     
@@ -106,7 +112,18 @@ let calc = Calculator()
 //: Keep in mind that writing new tests may reveal ambiguity in the specification above--if that's the case, document the ambiguity, declare what you think *should* happen, and write the test to test for it.
 
 // ===== Your tests go here
-
+calc.add([]) == 0
+calc.add(lhs:-2, rhs:2) == 0
+calc.add([]) == 0
+calc.divide(lhs:0, rhs:3) == 0
+calc.divide(lhs:6, rhs:-3) == -2
+calc.multiply(lhs:-2, rhs:2) == -4
+calc.multiply([]) == 0
+calc.avg([]) == 0
+calc.avg([3, 4, -7, -2, -3]) == -1
+calc.mathOp(lhs: 5, rhs: -3, op: { (lhs: Int, rhs: Int) -> Int in (lhs * rhs)}) == -15
+calc.mathOp(args:[4, 5, 6], beg:5, op:{$0 * $1}) == 600
+calc.mathOp(args:[2, 5, -1], beg:-100, op:{$0 / $1}) == 10
 //: ---
 //: ## Test code block
 //: Do not modify the code in this section
